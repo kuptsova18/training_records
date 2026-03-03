@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  justify-content: center;
+}
+
+
+.app {
+  position: absolute;  
+  width: 100vw;  
+  height: 100vh;  
+  top: 0;  
+  left: 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.training-form {
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #999;
+}
+
+.btn-ok {
+  padding: 0.5rem 2rem;
+  background-color: #e6e6e6;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+  height: 38px;
+}
+
+.btn-ok:hover {
+  background-color: #d9d9d9;
+}
+
+.tableBox{
+  width: 50%;
+  padding: 10px 0;
+}
+
+.training {
+  padding: 5px;
+  border:#333 solid 2px;
+  border-radius: 25px;
+}
+.trainings-table {
+  width: 100%;
+  text-align: center;
+}
+
+.trainings-table th {
+  padding: 0.75rem 0.5rem;
+  color: #666;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.trainings-table td {
+  padding: 0.75rem 0.5rem;
+
+}
+
+.trainings-table td:first-child,
+.trainings-table th:first-child {
+  padding-left: 0;
+}
+
+.trainings-table td:last-child,
+.trainings-table th:last-child {
+  text-align: center;
+}
+
+.btn-delete {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+.btn-edit {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0.25rem 0.5rem;
+  transition: color 0.2s;
+}
+.empty-message {
+  text-align: center;
+  color: #999;
+  padding: 2rem;
+}
+
