@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import Form from './Components/Form';
+import Data from './Components/Data';
 
 function App() {
   const [trainings, setTrainings] = useState(() => {
@@ -91,80 +93,19 @@ function App() {
     setDistance(training.distance);
     setEditingId(training.id);
   }
-  return (
-    <>
-      <div className='app'>
-        <h1>Учет тренировок</h1>
-        <form onSubmit={handleSubmit} className='training-form'>
-          <div className='form-row'>
-            <div className='form-group'>
-              <label htmlFor='date'>Дата (ДД.ММ.ГГГГ)</label>
-              <input
-                type="text"
-                id="date"
-                placeholder='ДД.ММ.ГГГГ'
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                required>
-              </input>
-            </div>
-            <div className='form-group'>
-              <label htmlFor='distance'>Пройдено км.</label>
-              <input
-                type="number"
-                id="distance"
-                step="0.1"
-                min="0"
-                placeholder='0.0'
-                value={distance}
-                onChange={(e) => setDistance(e.target.value)}
-                required>
-              </input>
-            </div>
-            <button type='submit' className='btn-ok'>ОК</button>
-          </div>
-        </form>
-
-        <div className='tableBox'>
-          <table className='trainings-table'>
-            <thead>
-              <tr>
-                <th>Дата (ДД.ММ.ГГГГ)</th>
-                <th>Пройдено км</th>
-                <th>Действия</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <div className='tableBox'>
-          <table className='trainings-table training'>
-            <tbody>
-
-              {trainings.length === 0 ? (
-                <tr>
-                  <td colSpan="3" className='empty-message'>Нет данных о тренировках</td>
-                </tr>) :
-                (trainings.map(training => (
-                  <tr key={training.id}>
-                    <td>{training.date}</td>
-                    <td>{training.distance.toFixed(1)}</td>
-                    <td>
-                      <button className='btn-edit'
-                        onClick={() => handleEdit(training)}
-                        title='Изменить'>✎</button>
-                      <button className='btn-delete'
-                        onClick={() => handleDelete(training.id)}
-                        title='Удалить'>✗</button>
-                    </td>
-                  </tr>
-                )))}
-            </tbody>
-
-          </table>
-        </div>
-      </div>
-    </>
-  )
+ return (
+    <div className='app'>
+      <h1>Учет тренировок</h1>
+      <Form
+        date={date}
+        distance={distance}
+        onDateChange={setDate}
+        onDistanceChange={setDistance}
+        onSubmit={handleSubmit}
+      />
+      <Data trainings={trainings} onEdit={handleEdit} onDelete={handleDelete} />
+    </div>
+  );
 }
 
 export default App
